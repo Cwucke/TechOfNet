@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contacts from './pages/Contacts'
+import { Counter } from './pages/Counter'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
     <BrowserRouter>
       <Header/>
       <Routes>
@@ -18,7 +21,6 @@ function App() {
       </Routes>
       <Footer/>
     </BrowserRouter>
-    </>
   )
 }
 

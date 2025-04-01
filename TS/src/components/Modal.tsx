@@ -3,6 +3,13 @@ import Button from "./Button";
 import Input from "./Input";
 import Text from "./Text";
 
+interface ModalProps{
+    isOpen:Boolean;
+    onClose:Boolean;
+    title:String;
+    
+}
+
 const Modal = (props) => {
     const{isOpen, onClose, title, items, setItems} = props;
     if (!isOpen) return null;

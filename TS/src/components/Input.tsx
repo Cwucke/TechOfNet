@@ -1,6 +1,14 @@
-import React from "react";
+type TypeSize = "small" | "medium" | "large"
 
-const Input = (props) => {
+interface InputProps{
+    type?:string;
+    placeholder?:string;
+    value:string;
+    onChange: (e:any) => void;
+    size: TypeSize;
+}
+
+const Input = (props:InputProps) => {
     const {type="text", placeholder, value, onChange, size} = props;
     const defaultClass = "border rounded px-3 py-2 outline-none transition-all";
     const classes = {

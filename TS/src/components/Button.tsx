@@ -1,6 +1,19 @@
 import React from 'react'
 
-const Button = (props) => {
+
+type TypeSize = "small" | "medium" | "large";
+type TypeColor = "primary" | "secondary";
+
+
+interface ButtonProps{
+  size:TypeSize;
+  color:TypeColor;
+  title:string;
+  onClick: () => void;
+  children?: React.JSX.Element;
+}
+
+const Button = (props: ButtonProps) => {
     const {size, color, title, onClick} = props;
     const defaultClass = "flex items-center rounded-2 h-[40px] w-[max-content] px-4 py-2"
     const classes = {

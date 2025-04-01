@@ -1,4 +1,10 @@
-import React from "react";
+type TypeSize = "small" | "medium" | "large"
+
+interface TextProps{
+    children?:string;
+    size: TypeSize;
+    color?:string;
+}
 
 const Text = (props) => {
     const {children, size="medium", color="black"} = props;
