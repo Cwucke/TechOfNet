@@ -6,7 +6,7 @@ interface TextProps{
     color?:string;
 }
 
-const Text = (props) => {
+const Text = (props:TextProps) => {
     const {children, size="medium", color="black"} = props;
     const sizes = {
         small: "text-sm",

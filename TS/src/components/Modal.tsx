@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import Text from "./Text";
 
 interface ModalProps{
-    isOpen:Boolean;
-    onClose:Boolean;
-    title:String;
-    
+    isOpen:boolean;
+    onClose:boolean;
+    title:string;
+    items:Array<object>;
+    setItems: (e:any) => void;
 }
 
-const Modal = (props) => {
+const Modal = (props: ModalProps) => {
     const{isOpen, onClose, title, items, setItems} = props;
     if (!isOpen) return null;
     const [inputTitle, setInputTitle] = useState("")
@@ -36,9 +37,9 @@ const Modal = (props) => {
                         {/* <Text>{children.map((item, index) => (
                             <li key={index}>{item.title} {item.desc} {item.price}</li>
                         ))}</Text> */}
-                        <Input placeholder="Название продукта" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)}></Input>
-                        <Input placeholder="Описание" value={inputDesc} onChange={(e) => setInputDesc(e.target.value)}></Input>
-                        <Input placeholder="цена в $" value={inputPrice} onChange={(e) => setInputPrice(e.target.value)}></Input>
+                        <Input placeholder="Название продукта" value={inputTitle} onChange={(e) => setInputTitle(e.target.value)} size="medium"></Input>
+                        <Input placeholder="Описание" value={inputDesc} onChange={(e) => setInputDesc(e.target.value)} size="medium"></Input>
+                        <Input placeholder="цена в $" value={inputPrice} onChange={(e) => setInputPrice(e.target.value)} size="medium"></Input>
                     </ul>
                 </div>
                 <Button onClick={addItem} color="primary" title="Добавить" size="medium"></Button>
