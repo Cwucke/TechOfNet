@@ -4,12 +4,10 @@ import { Container } from "../components/Container";
 import Input from "../components/Input";
 import Text from "../components/Text";
 import Modal from "../components/Modal";
-import axios from "axios";
 
 const Home =() =>{
     const [items, setItems] = useState([{title: "Apple", desc: "fruit", price:"30$"}])
     const [isModalOpen, setIsModalOpen] = useState(false);
-    axios.get('http://localhost:5000/api/data').then(response => {<>{response.data}</>})
     return (
             <Container>
                 <div className="flex flex-col gap-4 w-full h-full items-center justify-center">

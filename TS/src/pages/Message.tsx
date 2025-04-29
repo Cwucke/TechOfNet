@@ -3,7 +3,7 @@ import { Container } from "../components/Container";
 import Text from "../components/Text";
 
 const Message: React.FC = () => {
-    const [data, setData] = useState<{title: string, desc:string, price:string} | null>(
+    const [data, setData] = useState<{title: string, desc:string, price:string, message:string} | null>(
         null
     )
 
@@ -26,7 +26,7 @@ fetchData()
 
 return(
     <>
-        {data?.title} {data?.desc} {data?.price}
+        {data?.message}
     </>
 )
 }
