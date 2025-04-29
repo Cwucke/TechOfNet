@@ -11,6 +11,7 @@ interface ButtonProps{
   title:string;
   onClick: () => void;
   children?: React.JSX.Element;
+  submit?: SubmitEvent;
 }
 
 const Button = (props: ButtonProps) => {

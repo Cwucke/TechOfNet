@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from "react";
 import { Container } from "../components/Container";
 import Text from "../components/Text";
+import axios from "axios";
 
 const Message: React.FC = () => {
     const [data, setData] = useState<{title: string, desc:string, price:string, message:string} | null>(
         null
     )
 
-
 useEffect(() => {
     const fetchData = async () => {
         try{
-            const response = await fetch("http://localhost:5000/api/data")
+            const response = await fetch("http://localhost:5000/data")
             const result = await response.json()
             setData(result)
         }
@@ -23,10 +23,9 @@ useEffect(() => {
 fetchData()
 }, []);
 
-
 return(
     <>
-        {data?.message}
+        {data?.title} {data?.desc} {data?.price}
     </>
 )
 }

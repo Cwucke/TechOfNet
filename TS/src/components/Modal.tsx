@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import Text from "./Text";
+import axios from "axios";
 
 interface ModalProps{
     isOpen:boolean;
@@ -27,11 +28,14 @@ const Modal = (props: ModalProps) => {
         setInputTitle("")
         setInputDesc("")
         setInputPrice("")
+        axios.post("http://localhost:5000/data", items).then(response => console.log(response.data)).catch(error => (console.log(error)))
     }
+    
     return(
         <div className="fixed inset-0 flex justify-center items-center">
             <div className="bg-white p-5 rounded-lg shadow-lg w-[400px] relative">
                 <h2><Text size="large">{title}</Text></h2>
+                <form>
                 <div>
                     <ul>
                         {/* <Text>{children.map((item, index) => (
@@ -44,6 +48,7 @@ const Modal = (props: ModalProps) => {
                 </div>
                 <Button onClick={addItem} color="primary" title="Добавить" size="medium"></Button>
                 <Button onClick={onClose} color="secondary" size="medium" title="Закрыть"></Button>
+                </form>
             </div>
         </div>
     )

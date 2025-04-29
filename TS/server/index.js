@@ -1,15 +1,30 @@
-import express from 'express'
-import cors from 'cors'
-const app = express()
-const port = 5000
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser"
 
-app.use(cors())
-app.use(express.json())
+const app = express();
+const PORT = 5000;
 
-app.get('/api/data', (req,res) => {
-    res.json({message: 'Hello'})
-})
+// Middleware
+app.use(cors()); // Позволяет запрашивать сервер с других доменов
+app.use(bodyParser.json()); // Для парсинга JSON
 
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`)
-})
+// Массив для хранения данных
+let dataStore = [];
+
+//Метод GET
+app.get("/data", (req, res) => {
+    res.json({ title: String, desc: String, price:String });
+  });
+
+// Обработка POST-запросов
+app.post('/data', (req, res) => {
+  const newData = req.body;
+  dataStore.push(newData); // Сохраняем данные в массив
+  res.status(201).json(newData); // Отправляем ответ с новыми данными
+});
+
+// Запуск сервера
+app.listen(PORT, () => {
+  console.log(`Сервер запущен на http://localhost:${PORT}`);
+});
