@@ -8,7 +8,6 @@ class Header extends Component {
                 <a href='/'>Home</a>
                 <a href='/about'>About</a>
                 <a href='/contacts'>Contact</a>
-                <a href='/counter'>Counter(ваш пример)</a>
                 <a href='/message'>Message</a>
                 </div>
             </div>

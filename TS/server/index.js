@@ -14,7 +14,7 @@ let dataStore = [];
 
 //Метод GET
 app.get("/data", (req, res) => {
-    res.json({ title: String, desc: String, price:String });
+    res.json(dataStore);
   });
 
 // Обработка POST-запросов
